@@ -137,8 +137,6 @@ encode_bind_message(Conn=#conn{pool=Pool}, PortalName, StatementName, Parameters
 -spec encode_parameter(any(), pg_types:oid() | undefined) -> iodata().
 encode_parameter(null, _Type) ->
     <<-1:32/integer>>;
-encode_parameter(undefined, _Type) ->
-    <<-1:32/integer>>;
 encode_parameter(Parameter, TypeInfo) ->
     pg_types:encode(Parameter, TypeInfo).
 
