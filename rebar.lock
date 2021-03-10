@@ -2,7 +2,7 @@
 [{<<"backoff">>,{pkg,<<"backoff">>,<<"1.1.6">>},0},
  {<<"pg_types">>,
   {git,"https://github.com/bryanhughes/pgo.git",
-       {ref,"d61466a0eaae46dfe547b6de5c839effb840f85c"}},
+       {ref,"7b92ecb19b7377544e163f9cd588a2196712fba2"}},
   0},
  {<<"telemetry">>,{pkg,<<"telemetry">>,<<"0.4.2">>},0}]}.
 [
