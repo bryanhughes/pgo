@@ -1,8 +1,8 @@
 {"1.2.0",
 [{<<"backoff">>,{pkg,<<"backoff">>,<<"1.1.6">>},0},
  {<<"pg_types">>,
-  {git,"https://github.com/bryanhughes/pgo.git",
-       {ref,"7b92ecb19b7377544e163f9cd588a2196712fba2"}},
+  {git,"https://github.com/bryanhughes/pg_types.git",
+       {ref,"88b18546912588f74bc77983ffd936d3e6bce933"}},
   0},
  {<<"telemetry">>,{pkg,<<"telemetry">>,<<"0.4.2">>},0}]}.
 [
