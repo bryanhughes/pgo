@@ -441,7 +441,7 @@
 %%     {setup,
 %%     fun() ->
 %%         {ok, SupPid} = saap_sup:start_link(),
-%%         Conn = pgsql_connection:open("127.0.0.1", "test", "test", "", [{timezone, "UTC"}]),
+%%         Conn = pgsql_connection:open("localhost", "test", "test", "", [{timezone, "UTC"}]),
 %%         {SupPid, Conn}
 %%     end,
 %%     fun({SupPid, Conn}) ->
@@ -506,7 +506,7 @@
 %%     {setup,
 %%     fun() ->
 %%         {ok, SupPid} = saap_sup:start_link(),
-%%         Conn = pgsql_connection:open("127.0.0.1", "test", "test", "", [{timezone, "UTC"}]),
+%%         Conn = pgsql_connection:open("localhost", "test", "test", "", [{timezone, "UTC"}]),
 %%         {SupPid, Conn}
 %%     end,
 %%     fun({SupPid, Conn}) ->
@@ -545,8 +545,8 @@
 %%     {setup,
 %%     fun() ->
 %%         {ok, SupPid} = saap_sup:start_link(),
-%%         PosTZConn = pgsql_connection:open("127.0.0.1", "test", "test", "", [{timezone, "UTC+2"}]),
-%%         NegTZConn = pgsql_connection:open("127.0.0.1", "test", "test", "", [{timezone, "UTC-2"}]),
+%%         PosTZConn = pgsql_connection:open("localhost", "test", "test", "", [{timezone, "UTC+2"}]),
+%%         NegTZConn = pgsql_connection:open("localhost", "test", "test", "", [{timezone, "UTC-2"}]),
 %%         {SupPid, PosTZConn, NegTZConn}
 %%     end,
 %%     fun({SupPid, PosTZConn, NegTZConn}) ->

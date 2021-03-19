@@ -41,19 +41,21 @@ init_per_group(clear, Config) ->
     application:ensure_all_started(pgo),
 
     {ok, _} = pgo_sup:start_child(default, #{pool_size => 1,
+                                             host => "localhost",
                                              port => 5432,
-                                             database => "test",
-                                             user => "test"}),
+                                             database => "pgo_test",
+                                             user => "pgo_test"}),
 
     Config;
 init_per_group(ssl, Config) ->
     application:ensure_all_started(pgo),
 
     {ok, _} = pgo_sup:start_child(default, #{pool_size => 1,
+                                             host => "localhost",
                                              port => 5434,
                                              ssl => true,
-                                             database => "test",
-                                             user => "test"}),
+                                             database => "pgo_test",
+                                             user => "pgo_test"}),
 
     Config.
 

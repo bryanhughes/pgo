@@ -11,8 +11,10 @@ init_per_suite(Config) ->
     application:ensure_all_started(pgo),
 
     {ok, _} = pgo_sup:start_child(default, #{pool_size => 1,
-                                             database => "test",
-                                             user => "test"}),
+                                             host => "localhost",
+                                             port => 5432,
+                                             database => "pgo_test",
+                                             user => "pgo_test"}),
 
     ?assertMatch(#{command := create},
                  pgo:query("CREATE TYPE mood AS ENUM ('sad', 'ok', 'happy')")),

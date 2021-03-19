@@ -11,8 +11,10 @@ all() ->
 init_per_suite(Config) ->
     application:ensure_all_started(pgo),
 
-    {ok, _} = pgo_sup:start_child(default, #{database => "test",
-                                             user => "test",
+    {ok, _} = pgo_sup:start_child(default, #{database => "pgo_test",
+                                             host => "localhost",
+                                             port => 5432,
+                                             user => "pgo_test",
                                              pool_size => 1,
                                              decode_opts => [return_rows_as_maps]}),
 

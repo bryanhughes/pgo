@@ -27,8 +27,10 @@ init_per_group(erl_datetime, Config) ->
     application:ensure_all_started(pgo),
 
     {ok, _} = pgo_sup:start_child(default, #{pool_size => 1,
-                                             database => "test",
-                                             user => "test"}),
+                                             host => "localhost",
+                                             port => 5432,
+                                             database => "pgo_test",
+                                             user => "pgo_test"}),
     Config;
 init_per_group(as_micro, Config) ->
     application:load(pg_types),
@@ -36,8 +38,10 @@ init_per_group(as_micro, Config) ->
     application:ensure_all_started(pgo),
 
     {ok, _} = pgo_sup:start_child(default, #{pool_size => 1,
-                                             database => "test",
-                                             user => "test"}),
+                                             host => "localhost",
+                                             port => 5432,
+                                             database => "pgo_test",
+                                             user => "pgo_test"}),
     Config;
 init_per_group(as_integer, Config) ->
     application:load(pg_types),
@@ -45,8 +49,10 @@ init_per_group(as_integer, Config) ->
     application:ensure_all_started(pgo),
 
     {ok, _} = pgo_sup:start_child(default, #{pool_size => 1,
-                                             database => "test",
-                                             user => "test"}),
+                                             host => "localhost",
+                                             port => 5432,
+                                             database => "pgo_test",
+                                             user => "pgo_test"}),
     Config;
 init_per_group(as_float, Config) ->
     application:load(pg_types),
@@ -54,8 +60,10 @@ init_per_group(as_float, Config) ->
     application:ensure_all_started(pgo),
 
     {ok, _} = pgo_sup:start_child(default, #{pool_size => 1,
-                                             database => "test",
-                                             user => "test"}),
+                                             host => "localhost",
+                                             port => 5432,
+                                             database => "pgo_test",
+                                             user => "pgo_test"}),
     Config.
 
 end_per_group(_, _Config) ->
