@@ -289,7 +289,7 @@ decode_copy_in_response_message(Payload) ->
                                    columns=N,
                                    column_formats=ColumnFormats}};
         {error, _} ->
-            {error, {unknow_message, copy_in_response, Payload}}
+            {error, {unknown_message, copy_in_response, Payload}}
     end.
 
 decode_copy_out_response_message(Payload) ->
@@ -299,7 +299,7 @@ decode_copy_out_response_message(Payload) ->
                                     columns=N,
                                     column_formats=ColumnFormats}};
         {error, _} ->
-            {error, {unknow_message, copy_out_response, Payload}}
+            {error, {unknown_message, copy_out_response, Payload}}
     end.
 
 decode_copy_both_response_message(Payload) ->
@@ -309,7 +309,7 @@ decode_copy_both_response_message(Payload) ->
                                      columns=N,
                                      column_formats=ColumnFormats}};
         {error, _} ->
-            {error, {unknow_message, copy_both_response, Payload}}
+            {error, {unknown_message, copy_both_response, Payload}}
     end.
 
 decode_data_row_message(<<N:16/integer, Rest/binary>> = Payload) ->
@@ -317,10 +317,10 @@ decode_data_row_message(<<N:16/integer, Rest/binary>> = Payload) ->
         {ok, Values} ->
             {ok, #data_row{values=Values}};
         {error, _} ->
-            {error, {unknow_message, data_row, Payload}}
+            {error, {unknown_message, data_row, Payload}}
     end;
 decode_data_row_message(Payload) ->
-    {error, {unknow_message, data_row, Payload}}.
+    {error, {unknown_message, data_row, Payload}}.
 
 decode_data_row_values(Columns, Binary) ->
     decode_data_row_values0(Binary, Columns, []).

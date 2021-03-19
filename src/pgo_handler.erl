@@ -383,7 +383,8 @@ receive_loop0(#data_row{values = Values}, {rows, Fields} = LoopState, undefined=
     receive_loop(LoopState, DecodeFun, [DecodedRow | Acc0], DecodeOptions, Conn);
 receive_loop0(#data_row{values = Values}, {rows, Fields} = LoopState, DecodeFun, Acc0, DecodeOptions, Conn=#conn{pool=Pool}) ->
     DecodedRow = pgo_protocol:decode_row(Fields, Values, Pool, DecodeOptions),
-    receive_loop(LoopState, DecodeFun, [DecodeFun(DecodedRow, Fields) | Acc0], DecodeOptions, Conn);
+    Params = proplists:get_value(decode_fun_params, DecodeOptions, []),
+    receive_loop(LoopState, DecodeFun, [DecodeFun(DecodedRow, Fields, Params) | Acc0], DecodeOptions, Conn);
 receive_loop0(#command_complete{command_tag = Tag}, _LoopState, DecodeFun, Acc0, DecodeOptions, Conn) ->
     {Command, NumRows} = decode_tag(Tag),
     receive_loop({result, #{command => Command,
