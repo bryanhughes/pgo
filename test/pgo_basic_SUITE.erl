@@ -44,6 +44,7 @@ init_per_group(clear, Config) ->
                                              host => "localhost",
                                              port => 5432,
                                              database => "pgo_test",
+                                             password => "pgo_test",
                                              user => "pgo_test"}),
 
     Config;
@@ -55,6 +56,7 @@ init_per_group(ssl, Config) ->
                                              port => 5434,
                                              ssl => true,
                                              database => "pgo_test",
+                                             password => "pgo_test",
                                              user => "pgo_test"}),
 
     Config.

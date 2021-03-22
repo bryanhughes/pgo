@@ -30,6 +30,7 @@ init_per_group(erl_datetime, Config) ->
                                              host => "localhost",
                                              port => 5432,
                                              database => "pgo_test",
+                                             password => "pgo_test",
                                              user => "pgo_test"}),
     Config;
 init_per_group(as_micro, Config) ->
@@ -41,6 +42,7 @@ init_per_group(as_micro, Config) ->
                                              host => "localhost",
                                              port => 5432,
                                              database => "pgo_test",
+                                             password => "pgo_test",
                                              user => "pgo_test"}),
     Config;
 init_per_group(as_integer, Config) ->
@@ -52,6 +54,7 @@ init_per_group(as_integer, Config) ->
                                              host => "localhost",
                                              port => 5432,
                                              database => "pgo_test",
+                                             password => "pgo_test",
                                              user => "pgo_test"}),
     Config;
 init_per_group(as_float, Config) ->
@@ -63,6 +66,7 @@ init_per_group(as_float, Config) ->
                                              host => "localhost",
                                              port => 5432,
                                              database => "pgo_test",
+                                             password => "pgo_test",
                                              user => "pgo_test"}),
     Config.
 

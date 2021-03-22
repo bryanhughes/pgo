@@ -14,6 +14,7 @@ init_per_suite(Config) ->
                                              host => "localhost",
                                              port => 5432,
                                              database => "pgo_test",
+                                             password => "pgo_test",
                                              user => "pgo_test"}),
 
     Config.

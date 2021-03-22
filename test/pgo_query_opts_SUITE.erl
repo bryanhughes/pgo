@@ -15,6 +15,7 @@ init_per_suite(Config) ->
                                              host => "localhost",
                                              port => 5432,
                                              user => "pgo_test",
+                                             password => "pgo_test",
                                              pool_size => 1,
                                              decode_opts => [return_rows_as_maps]}),
 

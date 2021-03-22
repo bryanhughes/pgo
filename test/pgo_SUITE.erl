@@ -9,6 +9,7 @@
 
 -define(DATABASE, "pgo_test").
 -define(USER, "pgo_test").
+-define(PASSWORD, "pgo_test").
 
 -define(UNTIL(X), (fun Until(I) when I =:= 10 -> erlang:error(fail);
                        Until(I) -> case X of true -> ok; false -> timer:sleep(10), Until(I + 1) end end)(0)).
@@ -29,6 +30,7 @@ init_per_testcase(T, Config) when T =:= checkout_break ->
                                 host => "localhost",
                                 port => 5432,
                                 database => ?DATABASE,
+                                password => ?PASSWORD,
                                 user => ?USER}),
 
     Tid = pgo_pool:tid(Name),
@@ -41,6 +43,7 @@ init_per_testcase(T, Config) when T =:= checkout_query_crash ->
                                 host => "localhost",
                                 port => 5432,
                                 database => ?DATABASE,
+                                password => ?PASSWORD,
                                 user => ?USER}),
 
     Tid = pgo_pool:tid(Name),
@@ -53,6 +56,7 @@ init_per_testcase(checkout_kill, Config) ->
                                 host => "localhost",
                                 port => 5432,
                                 database => ?DATABASE,
+                                password => ?PASSWORD,
                                 user => ?USER}),
     Tid = pgo_pool:tid(Name),
     ?UNTIL((catch ets:info(Tid, size)) =:= 10),
@@ -64,6 +68,7 @@ init_per_testcase(_, Config) ->
                                 host => "localhost",
                                 port => 5432,
                                 database => ?DATABASE,
+                                password => ?PASSWORD,
                                 user => ?USER}),
     Tid = pgo_pool:tid(Name),
     ?UNTIL((catch ets:info(Tid, size)) =:= 10),
